@@ -2,7 +2,7 @@
 
 echo .
 
-echo 正在退出Memcached进程......
+echo killing memcached.exe ......
 plugin\process.exe -k memcached.exe
 echo .
 echo .
