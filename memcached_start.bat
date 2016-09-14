@@ -1,66 +1,66 @@
 @echo off
-echo. windowsÃüÁîÐÐÆô¶¯memcached·þÎñÆ÷
-echo. ¹¦ÄÜ£ºÍ¨¹ýÅú´¦ÀíÎÄ¼þ¹ÜÀímemcached·þÎñÆ÷µÄÆô¶¯¡¢¹Ø±Õ¡¢ÖØÆô¡£
-echo. author£ºgwang(mail@wanggangzero.cn)
+echo. windowså‘½ä»¤è¡Œå¯åŠ¨memcachedæœåŠ¡å™¨
+echo. åŠŸèƒ½ï¼šé€šè¿‡æ‰¹å¤„ç†æ–‡ä»¶ç®¡ç†memcachedæœåŠ¡å™¨çš„å¯åŠ¨ã€å…³é—­ã€é‡å¯ã€‚
+echo. authorï¼šgwang(mail@wanggangzero.cn)
 echo. version:
 echo.    1.0.0  Created by gwang 2016.4.15.
 
-rem Èç¹ûÊÇx64·þÎñÆ÷Ôò×Ô¶¯ÔËÐÐ64Î»·þÎñ¶Ë³ÌÐò
+rem å¦‚æžœæ˜¯x64æœåŠ¡å™¨åˆ™è‡ªåŠ¨è¿è¡Œ64ä½æœåŠ¡ç«¯ç¨‹åº
 if %PROCESSOR_ARCHITECTURE:~-1%==4 (set x86_64=win64) else set x86_64=win32
 
-rem Éè¶¨±äÁ¿
+rem è®¾å®šå˜é‡
 set hider=plugin\RunHiddenConsole.exe
 set pro=%~dp1memcached\memcached_%x86_64%\memcached.exe
 set cmd=%hider% %pro%
   
  
-echo ÕýÔÚÆô¶¯memcached-server default(¶Ë¿Ú:11211)·þÎñÆ÷......
+echo æ­£åœ¨å¯åŠ¨memcached-server default(ç«¯å£:11211)æœåŠ¡å™¨......
 %cmd% -m 10 -p 11211
 
-echo ÕýÔÚÆô¶¯memcached-server Éñ³èÊÖÓÎ999Çø(¶Ë¿Ú:11215)·þÎñÆ÷......
+echo æ­£åœ¨å¯åŠ¨memcached-server xxé¡¹ç›®(ç«¯å£:11215)æœåŠ¡å™¨......
 %cmd% -m 10 -p 11215
 
-echo ÕýÔÚÆô¶¯memcached-server (¶Ë¿Ú:11213)·þÎñÆ÷......
+echo æ­£åœ¨å¯åŠ¨memcached-server xx(ç«¯å£:11213)æœåŠ¡å™¨......
 %cmd% -m 10 -p 11213
 
-rem ÐÂÔömemcachedÊµÀýÐèÒªÔÚÕâÀïÌí¼ÓÒ»ÐÐÐÂµÄÆô¶¯´úÂë..
+rem æ–°å¢žmemcachedå®žä¾‹éœ€è¦åœ¨è¿™é‡Œæ·»åŠ ä¸€è¡Œæ–°çš„å¯åŠ¨ä»£ç ..
 
 
 
 echo .
 echo .
 echo .
-:: ÍË³ö
+:: é€€å‡º
 exit
 
 ======================
 
-memcached ²ÎÊýËµÃ÷:
--d ÒÔdaemonµÄÐÎÊ½ÔËÐÐ
-    -d start Æô¶¯memcached·þÎñ
-    -d restart ÖØÆðmemcached·þÎñ
-    -d stop|shutdown ¹Ø±ÕÕýÔÚÔËÐÐµÄmemcached·þÎñ
-    -d install °²×°memcached·þÎñ
-    -d uninstall Ð¶ÔØmemcached·þÎñ
+memcached å‚æ•°è¯´æ˜Ž:
+-d ä»¥daemonçš„å½¢å¼è¿è¡Œ
+    -d start å¯åŠ¨memcachedæœåŠ¡
+    -d restart é‡èµ·memcachedæœåŠ¡
+    -d stop|shutdown å…³é—­æ­£åœ¨è¿è¡Œçš„memcachedæœåŠ¡
+    -d install å®‰è£…memcachedæœåŠ¡
+    -d uninstall å¸è½½memcachedæœåŠ¡
     
--u ÒÔxµÄÉí·ÝÔËÐÐ (½öÔÚÒÔrootÔËÐÐµÄÊ±ºòÓÐÐ§)
+-u ä»¥xçš„èº«ä»½è¿è¡Œ (ä»…åœ¨ä»¥rootè¿è¡Œçš„æ—¶å€™æœ‰æ•ˆ)
 
--m ×î´óÄÚ´æÊ¹ÓÃ£¬µ¥Î»MB¡£Ä¬ÈÏ64MB
+-m æœ€å¤§å†…å­˜ä½¿ç”¨ï¼Œå•ä½MBã€‚é»˜è®¤64MB
 
--l Á¬½ÓµÄIPµØÖ·, Ä¬ÈÏÊÇ±¾»ú
--p ÊÇÉèÖÃMemcache¼àÌýµÄ¶Ë¿Ú,×îºÃÊÇ1024ÒÔÉÏµÄ¶Ë¿Ú,Ä¬ÈÏÊÇ11211
+-l è¿žæŽ¥çš„IPåœ°å€, é»˜è®¤æ˜¯æœ¬æœº
+-p æ˜¯è®¾ç½®Memcacheç›‘å¬çš„ç«¯å£,æœ€å¥½æ˜¯1024ä»¥ä¸Šçš„ç«¯å£,é»˜è®¤æ˜¯11211
 
--c Ñ¡ÏîÊÇ×î´óÔËÐÐµÄ²¢·¢Á¬½ÓÊý£¬Ä¬ÈÏÊÇ1024£¬°´ÕÕÄã·þÎñÆ÷µÄ¸ºÔØÁ¿À´Éè¶¨
--f ¿é´óÐ¡Ôö³¤Òò×Ó£¬Ä¬ÈÏÊÇ1.25 
--n ×îÐ¡·ÖÅä¿Õ¼ä£¬key+value+flagsÄ¬ÈÏÊÇ48
--h ÏÔÊ¾°ïÖú
+-c é€‰é¡¹æ˜¯æœ€å¤§è¿è¡Œçš„å¹¶å‘è¿žæŽ¥æ•°ï¼Œé»˜è®¤æ˜¯1024ï¼ŒæŒ‰ç…§ä½ æœåŠ¡å™¨çš„è´Ÿè½½é‡æ¥è®¾å®š
+-f å—å¤§å°å¢žé•¿å› å­ï¼Œé»˜è®¤æ˜¯1.25 
+-n æœ€å°åˆ†é…ç©ºé—´ï¼Œkey+value+flagsé»˜è®¤æ˜¯48
+-h æ˜¾ç¤ºå¸®åŠ©
 
--M ÄÚ´æºÄ¾¡Ê±·µ»Ø´íÎó£¬¶ø²»ÊÇÉ¾³ýÏî
--P ÊÇÉèÖÃ±£´æMemcacheµÄpidÎÄ¼þ
+-M å†…å­˜è€—å°½æ—¶è¿”å›žé”™è¯¯ï¼Œè€Œä¸æ˜¯åˆ é™¤é¡¹
+-P æ˜¯è®¾ç½®ä¿å­˜Memcacheçš„pidæ–‡ä»¶
   
 
-Memcache»·¾³²âÊÔ£º
-ÔËÐÐÏÂÃæµÄphpÎÄ¼þ£¬Èç¹ûÓÐÊä³ö Hello Memcache! ¾Í±íÊ¾»·¾³´î½¨³É¹¦¡£
+MemcacheçŽ¯å¢ƒæµ‹è¯•ï¼š
+è¿è¡Œä¸‹é¢çš„phpæ–‡ä»¶ï¼Œå¦‚æžœæœ‰è¾“å‡º Hello Memcache! å°±è¡¨ç¤ºçŽ¯å¢ƒæ­å»ºæˆåŠŸã€‚
 <?php
 $mem = new Memcache;
 $mem->connect('127.0.0.1', 11211);
