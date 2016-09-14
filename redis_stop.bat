@@ -2,8 +2,8 @@
 
 echo .
 
-echo 正在退出redis-server进程......
-plugin\process.exe -k redis-server-sns.exe
+echo killing redis-server.exe ......
+plugin\process.exe -k redis-server.exe
 echo .
 echo .
 echo .
