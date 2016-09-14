@@ -1,41 +1,41 @@
 @echo on
-echo. windowsÃüÁîĞĞÆô¶¯redis·şÎñÆ÷
-echo. ¹¦ÄÜ£ºÍ¨¹ıÅú´¦ÀíÎÄ¼ş¹ÜÀíRedis·şÎñÆ÷µÄÆô¶¯¡¢¹Ø±Õ¡¢ÖØÆô¡£
-echo. author£ºgwang(mail@wanggangzero.cn)
+echo. windowså‘½ä»¤è¡Œå¯åŠ¨redisæœåŠ¡å™¨
+echo. åŠŸèƒ½ï¼šé€šè¿‡æ‰¹å¤„ç†æ–‡ä»¶ç®¡ç†RedisæœåŠ¡å™¨çš„å¯åŠ¨ã€å…³é—­ã€é‡å¯ã€‚
+echo. authorï¼šgwang(mail@wanggangzero.cn)
 echo. version: 
-echo.          2.0 Ìí¼Ó¶à°æ±¾Ö§³Ö,¿ÉÒÔÑ¡Ôñ2.6,2.8,3.0»òÕß3.2-preview°æ, 2016Äê6ÔÂ29ÈÕ -gwang
-echo.          1.0 ´´½¨, ¿ÉÒÔÍ¨¹ıÅäÖÃÎÄ¼ş·½±ãµÄĞÂÔöredisÊµÀı 2016Äê3ÔÂ26ÈÕ -gwang
+echo.          2.0 æ·»åŠ å¤šç‰ˆæœ¬æ”¯æŒ,å¯ä»¥é€‰æ‹©2.6,2.8,3.0æˆ–è€…3.2-previewç‰ˆ, 2016å¹´6æœˆ29æ—¥ -gwang
+echo.          1.0 åˆ›å»º, å¯ä»¥é€šè¿‡é…ç½®æ–‡ä»¶æ–¹ä¾¿çš„æ–°å¢rediså®ä¾‹ 2016å¹´3æœˆ26æ—¥ -gwang
 
 
-rem Èç¹ûÊÇx64·şÎñÆ÷Ôò×Ô¶¯ÔËĞĞ64Î»·şÎñ¶Ë³ÌĞò
+rem å¦‚æœæ˜¯x64æœåŠ¡å™¨åˆ™è‡ªåŠ¨è¿è¡Œ64ä½æœåŠ¡ç«¯ç¨‹åº
 if %PROCESSOR_ARCHITECTURE:~-1%==4 (set x86_64=x64) else (set x86_64=x32)
 
-rem ÉèÖÃ°æ±¾ ¿ÕÔòÆô¶¯2.6
+rem è®¾ç½®ç‰ˆæœ¬ ç©ºåˆ™å¯åŠ¨2.6
 set ver=-2.8
 REM set ver=-3.0
 REM set ver=-3.2-preview
 REM set ver=
 
-rem Éè¶¨±äÁ¿
+rem è®¾å®šå˜é‡
 set hider=plugin\RunHiddenConsole.exe
-set pro=%~dp1redis\bin\redis-x64%ver%\redis-server-sns.exe
+set pro=%~dp1redis\bin\redis-x64%ver%\redis-server.exe
 set cmd=%hider% %pro%
 set dir_conf=%~dp1redis\conf.d\
 
-rem 2.8°æ±¾µÄĞèÒª×¨ÃÅÖ¸¶¨ maxheap
+rem 2.8ç‰ˆæœ¬çš„éœ€è¦ä¸“é—¨æŒ‡å®š maxheap
 if "%ver%"=="-2.8" (
     set args=--maxheap 2536000
 )
-REM echo ÕıÔÚÆô¶¯redis-server Éñ³è2ÊÖÓÎ(¶Ë¿Ú:6666)·şÎñÆ÷......
+REM echo æ­£åœ¨å¯åŠ¨redis-server ç¥å® 2æ‰‹æ¸¸(ç«¯å£:6666)æœåŠ¡å™¨......
 REM %cmd% %dir_conf%port6666.conf  %args%
 
-REM echo ÕıÔÚÆô¶¯redis-server ´ò·É»úĞŞÏÉ(¶Ë¿Ú:6000)·şÎñÆ÷......
+REM echo æ­£åœ¨å¯åŠ¨redis-server æ‰“é£æœºä¿®ä»™(ç«¯å£:6000)æœåŠ¡å™¨......
 REM %cmd% %dir_conf%port6000.conf  %args%
 
-echo ÕıÔÚÆô¶¯redis-server ĞÂÏîÄ¿(¶Ë¿Ú:6001)·şÎñÆ÷......
+echo æ­£åœ¨å¯åŠ¨redis-server æ–°é¡¹ç›®(ç«¯å£:6001)æœåŠ¡å™¨......
 %cmd% %dir_conf%port6001.conf  %args%
 
-rem ĞÂÔöredis ÊµÀıĞèÒªÔÚconf.dÖĞÔö¼ÓconfÎÄ¼ş,²¢ÔÚÕâÀïÌí¼ÓÆô¶¯´úÂë.
+rem æ–°å¢redis å®ä¾‹éœ€è¦åœ¨conf.dä¸­å¢åŠ confæ–‡ä»¶,å¹¶åœ¨è¿™é‡Œæ·»åŠ å¯åŠ¨ä»£ç .
 
 echo .
 echo .
