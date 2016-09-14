@@ -51,5 +51,15 @@ nginx(openresty)+mysql+redis+php(php-fpm) On windows
 	womp_stop.bat  : 关闭openresty + mysql + php
 
 ***
+备注： 
+---
+&nbsp;&nbsp;&nbsp;&nbsp;脚本中所需要的各个程序的二进制包就不往上传了。 目的是分享程序，不是把github当做下载服务器。
+
+&nbsp;&nbsp;&nbsp;&nbsp;脚本中需要几个插件[runhidenconsole.exe][], [process.exe][], [xxfpm.exe][]
+
+
 [openresty]: http://openresty.org/ "带有lua脚本二次开发功能的nginx，详情参考官网"
 [memcached]: http://baike.baidu.com/item/memcached "已被redis替换"
+[runhidenconsole.exe]: http://redmine.lighttpd.net/attachments/660/RunHiddenConsole.zip "点击下载"
+[process.exe]: http://retired.beyondlogic.org/solutions/processutil/process203.zip "点击下载"
+[xxfpm.exe]: http://xiaoxia.org/upfiles/2011/02/xxfpm.zip "国人开源，点击下载"
